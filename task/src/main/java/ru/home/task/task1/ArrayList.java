@@ -1,6 +1,7 @@
 package ru.home.task.task1;
 
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class ArrayList<T> implements InterfaceArrayList {
     private static final int DEFAULT_SIZE = 10;
@@ -101,8 +102,8 @@ public class ArrayList<T> implements InterfaceArrayList {
     public boolean isEmpty() {
         return size == 0;
     }
-    public static void quickSort(ArrayList<Object> arrayList, int low, int high) {
-
+    public void sort(Comparator<? super T> comparator) {
+        Arrays.sort(elements, 0, size, comparator);
     }
 
 

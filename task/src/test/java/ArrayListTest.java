@@ -56,6 +56,7 @@ public class ArrayListTest {
         Assertions.assertEquals(testInteger, myObjectArrayList.get(0));
         Assertions.assertEquals(lastElement, myObjectArrayList.get((myObjectArrayList.size() - 1)));
     }
+
     @Test
     void addWithIndexInTailMethodPositiveTest() {
 
@@ -78,6 +79,7 @@ public class ArrayListTest {
         Assertions.assertEquals(testInteger, myObjectArrayList.get(myObjectArrayList.size() - 2));
         Assertions.assertEquals(lastElement, myObjectArrayList.get((myObjectArrayList.size() - 1)));
     }
+
     @Test
     void clearMethodPositiveTest() {
 
@@ -97,6 +99,7 @@ public class ArrayListTest {
 
 
     }
+
     @Test
     void setMethodPositiveTest() {
 
@@ -120,6 +123,7 @@ public class ArrayListTest {
         Assertions.assertEquals(testInteger, myObjectArrayList.get(myObjectArrayList.size() - 1));
 
     }
+
     @Test
     void setMethodNegativeTest() {
         int testInteger = 1;
@@ -137,5 +141,72 @@ public class ArrayListTest {
         Assertions.assertNull(myObjectArrayList.set(myObjectArrayList.size(), testInteger));
 
     }
- }
+
+    @Test
+    void removeByIndexMethodPositiveTest() {
+        int numberOfElements = 10;
+
+        int randomTestInteger;
+
+        for (int i = 0; i < numberOfElements; i++) {
+            randomTestInteger = (int) (1 + Math.random() * 100);
+            myObjectArrayList.add(randomTestInteger);
+        }
+
+        int oldSize = myObjectArrayList.size();
+
+        Assertions.assertEquals(myObjectArrayList.get(0), myObjectArrayList.delete(0));
+        Assertions.assertEquals(myObjectArrayList.size(), oldSize - 1);
+        Assertions.assertEquals(myObjectArrayList.get(myObjectArrayList.size() - 1), myObjectArrayList.delete(myObjectArrayList.size() - 1));
+
+    }
+    @Test
+    void removeByIndexMethodNegativeTest() {
+        int numberOfElements = 10;
+
+        int randomTestInteger;
+
+        for (int i = 0; i < numberOfElements; i++) {
+            randomTestInteger = (int) (1 + Math.random() * 100);
+            myObjectArrayList.add(randomTestInteger);
+        }
+
+        Assertions.assertNull(myObjectArrayList.delete(-1));
+        Assertions.assertNull(myObjectArrayList.delete(myObjectArrayList.size()));
+    }
+    @Test
+    void removeByElementMethodPositiveTest() {
+        ArrayList<String> myStringArrayList = new ArrayList<>();
+
+        myStringArrayList.add("abc");
+        myStringArrayList.add("def");
+        myStringArrayList.add("ghi");
+        myStringArrayList.add("jkl");
+        myStringArrayList.add("mno");
+
+        int oldSize = myStringArrayList.size();
+
+        Assertions.assertEquals(myStringArrayList.get(0), myStringArrayList.delete("abc"));
+        Assertions.assertEquals(myStringArrayList.get(0), "def");
+        Assertions.assertEquals(myStringArrayList.size(), oldSize - 1);
+    }
+    @Test
+    void removeByElementMethodNegativeTest() {
+        int numberOfElements = 10;
+
+        int randomTestInteger;
+
+        for (int i = 0; i < numberOfElements; i++) {
+            randomTestInteger = (int) (1 + Math.random() * 100);
+            myObjectArrayList.add(randomTestInteger);
+        }
+
+        Assertions.assertNull(myObjectArrayList.delete("xyz"));
+    }
+
+}
+
+
+
+
 

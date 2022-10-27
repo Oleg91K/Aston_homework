@@ -1,5 +1,8 @@
 package ru.home.task.task1;
 
+import java.util.LinkedList;
+import java.util.TreeSet;
+
 public class Main {
     public static void main(String[] args) {
         ArrayList<Integer> arrayList = new ArrayList<>();
@@ -18,11 +21,16 @@ public class Main {
         arrayList.add(18);
         arrayList.add(12);
         arrayList.add(24);
-        arrayList.delete(24);
+       // arrayList.delete(24);
         System.out.println(arrayList);
-        System.out.println(arrayList.index(12));
+       // System.out.println(arrayList.index(12));
+        arrayList.sort(Integer::compareTo);
+        System.out.println(arrayList);
+
+
 
         }
+
     }
 
 
